@@ -9,16 +9,37 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/rising/config/common_full_phone.mk)
 
 # Inherit from raphael device
 $(call inherit-product, device/xiaomi/raphael/device.mk)
 
-PRODUCT_NAME := lineage_raphael
+PRODUCT_NAME := rising_raphael
 PRODUCT_DEVICE := raphael
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Mi 9T Pro
+
+# Rising
+PRODUCT_BUILD_PROP_OVERRIDES += \
+	RisingChipset="Snapdragon 855" \
+	RisingMaintainer="Tactus"
+
+# Blur
+TARGET_ENABLE_BLUR := true
+
+# Launchers
+# TARGET_DEFAULT_PIXEL_LAUNCHER := true
+# TARGET_PREBUILT_LAWNCHAIR_LAUNCHER := true
+
+# Extra stuff
+TARGET_PREBUILT_BCR := true
+
+# Camera
+TARGET_PREBUILT_GOOGLE_CAMERA := true
+
+# Gapps
+WITH_GMS := true
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
